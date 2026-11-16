@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101322">
+  <title>ClipForge AI — Video Clip Maker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">✂</span> ClipForge <b>AI</b></a>
+    <span class="plan">FREE · 1 CLIP / DAY</span>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">YOUR VIDEO, SHORTER</p>
+      <h1>Turn long videos<br><span>into short clips.</span></h1>
+      <p class="sub">A simple first version of ClipForge AI. Choose a video, select the moment you want, and create a shareable clip.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div><p class="eyebrow">STEP 1</p><h2>Upload a video</h2></div>
+        <span class="step">01 / 03</span>
+      </div>
+      <label class="upload" for="videoFile">
+        <span class="upload-icon">↑</span>
+        <strong>Choose video from your phone</strong>
+        <small>MP4, MOV, WebM and other browser-supported formats</small>
+        <input id="videoFile" type="file" accept="video/*">
+      </label>
+      <p id="fileName" class="muted">No video selected yet.</p>
+      <video id="sourceVideo" controls playsinline></video>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div><p class="eyebrow">STEP 2</p><h2>Select your clip</h2></div>
+        <span class="step">02 / 03</span>
+      </div>
+      <div class="time-grid">
+        <label>Start time (seconds)<input id="startTime" type="number" min="0" step="0.1" value="0"></label>
+        <label>End time (seconds)<input id="endTime" type="number" min="0" step="0.1" value="15"></label>
+      </div>
+      <p class="hint">Tip: Keep your first clip around 15–60 seconds. The video will play while the clip is recorded.</p>
+      <button id="createBtn" class="primary" disabled>Create my clip <span>→</span></button>
+      <div class="progress-wrap" id="progressWrap" hidden>
+        <div class="progress"><div id="progressBar"></div></div>
+        <p id="progressText" class="muted">Preparing clip…</p>
+      </div>
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <section class="panel result" id="resultPanel" hidden>
+      <div class="section-head">
+        <div><p class="eyebrow">STEP 3</p><h2>Your clip is ready</h2></div>
+        <span class="step">03 / 03</span>
+      </div>
+      <video id="outputVideo" controls playsinline></video>
+      <a id="downloadBtn" class="primary download" download="clipforge-clip.webm">Download clip ↓</a>
+      <p class="hint">This first version exports WebM. Some phones may need a compatible video player to open it.</p>
+    </section>
+
+    <footer>ClipForge AI · Starter version <span>Videos stay on your device in this demo.</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
